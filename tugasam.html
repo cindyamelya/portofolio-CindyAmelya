@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration From</title>
+    <style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Times New Roman", serif;
+    background-color: #fff0f5;
+    margin: 0;
+    padding: 10px;
+}
+
+.container {
+    width: 300px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: lightpink;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 17px;
+    margin: 3px 0 12px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 6px;
+    border: 1px solid #d8a0aa;
+    border-radius: 3px;
+}
+
+.form-group > label {
+    width: 78px;
+    flex-shrink: 0;
+    font-size: 10px;
+}
+
+.input-area {
+    flex: 1;
+    min-width: 0;
+}
+
+input:not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+select,
+textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 3px;
+    font-size: 9px;
+    border: 1px solid #d8a0aa;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.name-input,
+.date-input,
+.phone-input {
+    display: flex;
+    gap: 3px;
+}
+
+.date-input input {
+    min-width: 0;
+}
+
+.phone-code {
+    width: 32px !important;
+    flex-shrink: 0;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+}
+
+.options label {
+    white-space: nowrap;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    margin: 0 2px 0 0;
+}
+
+input[type="file"] {
+    width: 100%;
+    min-width: 0;
+    font-size: 8px;
+}
+
+textarea {
+    height: 35px;
+    resize: vertical;
+}
+
+.address-group {
+    align-items: flex-start;
+}
+
+.address-group > label {
+    padding-top: 3px;
+}
+
+.button-area {
+    text-align: center;
+    margin-top: 8px;
+}
+
+button {
+    padding: 4px 10px;
+    font-size: 9px;
+    background-color: #fff0f5;
+    color: #663344;
+    border: 1px solid #d8a0aa;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f4a6b5;
+}
+
+@media (max-width: 320px) {
+    .container {
+        padding: 8px;
+    }
+
+    .form-group > label {
+        width: 70px;
+        font-size: 9px;
+    }
+}
+
+    
+    </style>
+</head>
+<body>
+    <div class="from-group">
+        <label for="roll" Roll no.:</label>
+        <div class="input-area">
+            <input type="text" name="roll" id="roll" placeholder="Enter your roll no.">
+    </div>
+    <div class="from-group">
+        <label>Student name</label>
+        <div class="input-area">
+            <input type="text" name="fristName" placeholder="First Name" required>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+        </div>
+        <div class="from-group">
+            <label for="father">Father's Name:</label> 
+            <div class="input-area"> 
+                <input type="text" name="father" id="father" placeholder="Enter your father's name">
+            </div>
+        <div class="from-group">
+            <label for="mother">Mother's Name:</label> 
+            <div class="input-area">
+                <input type="text" name="mother" id="mother" placeholder="Enter your mother's name">
+            </div>
+        </div>
+        <div class="from-group">
+            <label>date of birth:</label>
+            <div class="input-area date-input">
+                <input type="number" placehorder="day" min="1" max="12" required>
+                <input type="number" placehorder="month" min="1" max="12" required>
+                <input type="number" placehorder="year"  required>
+            </div>
+            <div class="form-group">
+    <label>Mobile no. :</label>
+    <div class="input-area phone-input">
+        <input
+            class="phone-code"
+            type="text"
+            value="+62"
+            readonly
+        >
+        <input
+            type="tel"
+            name="mobile"
+        >
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="email">Email id :</label>
+    <div class="input-area">
+        <input
+            type="email"
+            id="email"
+            name="email"
+            required
+        >
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="password">Password :</label>
+    <div class="input-area">
+        <input
+            type="password"
+            id="password"
+            name="password"
+            required
+        >
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Gender :</label>
+    <div class="input-area options">
+        <label>
+            <input
+                type="radio"
+                name="gender"
+                value="Male"
+            >
+            Male
+        </label>
+
+        <label>
+            <input
+                type="radio"
+                name="gender"
+                value="Female"
+            >
+            Female
+        </label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Department :</label>
+    <div class="input-area options">
+        <label>
+            <input
+                type="checkbox"
+                name="dept"
+                value="CSE"
+            >
+            CSE
+        </label>
+
+        <label>
+            <input
+                type="checkbox"
+                name="dept"
+                value="IT"
+            >
+            IT
+        </label>
+
+        <label>
+            <input
+                type="checkbox"
+                name="dept"
+                value="ECE"
+            >
+            ECE
+        </label>
+
+        <label>
+            <input
+                type="checkbox"
+                name="dept"
+                value="Civil"
+            >
+            Civil
+        </label>
+
+        <label>
+            <input
+                type="checkbox"
+                name="dept"
+                value="Mech"
+            >
+            Mech
+        </label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="course">Course :</label>
+    <div class="input-area">
+        <select id="course" name="course">
+            <option value="">-- Select Current Course --</option>
+            <option>Web Development</option>
+            <option>Software Engineering</option>
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="photo">Student photo :</label>
+    <div class="input-area">
+        <input
+            type="file"
+            id="photo"
+            name="photo"
+            accept="image/*"
+        >
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="city">City :</label>
+    <div class="input-area">
+        <input
+            type="text"
+            id="city"
+            name="city"
+        >
+    </div>
+</div>
+
+<div class="form-group address-group">
+    <label for="address">Address :</label>
+    <div class="input-area">
+        <textarea
+            id="address"
+            name="address"
+        ></textarea>
+    </div>
+</div>
+
+<div class="button-area">
+    <button type="submit">Register</button>
+</div>
+
+</form>
+</div>
+
+</body>
+</html>

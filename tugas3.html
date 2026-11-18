@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tugas Form and Table - Data Siswa</title>
+<style>
+    * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+  body { background: #f1f5f9; padding: 20px; }
+  .card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; max-width: 1000px; margin-left:auto; margin-right:auto; }
+  .card-header { font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  label { font-size: 12px; color: #64748b; font-weight: 600; display: block; margin-bottom: 4px; }
+  input, select { width: 100%; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; }
+  input:focus, select:focus { outline: none; border-color: #3b82f6; }
+  .radio-group { display: flex; gap: 15px; margin-top: 5px; }
+  .btn { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; }
+  .btn-primary { background: #3b82f6; color: white; }
+  .btn-secondary { background: #e2e8f0; color: #475569; }
+  .btn-edit { background: #3b82f6; color: white; padding: 4px 8px; }
+  .btn-delete { background: #ef4444; color: white; padding: 4px 8px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  th { background: #f8fafc; text-align: left; padding: 10px; font-size: 12px; color: #64748b; border-bottom: 1px solid #e2e8f0; }
+  td { padding: 10px; font-size: 13px; border-bottom: 1px solid #f1f5f9; }
+  .toolbar { display: flex; justify-content: space-between; align-items: center; }
+  .search { padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; }
+  @media(max-width: 700px){ .form-grid{ grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-header">📝 Tambah Data Siswa</div>
+  <div class="form-grid">
+    <div>
+      <label>NIS</label>
+      <input type="text" id="nis" placeholder="Masukkan NIS">
+    </div>
+    <div>
+      <label>Jenis Kelamin</label>
+      <div class="radio-group">
+        <label><input type="radio" name="jk" value="Laki-laki" checked> Laki-laki</label>
+        <label><input type="radio" name="jk" value="Perempuan"> Perempuan</label>
+      </div>
+    </div>
+    <div>
+      <label>Nama Lengkap</label>
+      <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+    </div>
+    <div>
+      <label>Tanggal Lahir</label>
+      <input type="date" id="tgl">
+    </div>
+    <div>
+      <label>Kelas</label>
+      <select id="kelas">
+        <option value="">Pilih Kelas</option>
+        <option>X RPL 1</option>
+        <option>X RPL 2</option>
+        <option>XI RPL 1</option>
+        <option>XI RPL 2</option>
+      </select>
+    </div>
+  </div>
+  <div style="margin-top:15px; display:flex; gap:10px;">
+    <button class="btn btn-primary" onclick="simpan()">+ Simpan</button>
+    <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="toolbar">
+    <div class="card-header" style="margin:0">📋 Data Siswa</div>
+    <input type="text" id="search" class="search" placeholder="Cari nama atau NIS..." onkeyup="render()">
+  </div>
+  <div style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr>
+          <th>No</th><th>NIS</th><th>Nama Lengkap</th><th>Kelas</th><th>Jenis Kelamin</th><th>Tanggal Lahir</th><th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <div id="info" style="font-size:11px; color:#94a3b8; margin-top:10px"></div>
+</div>
+
+<script>
+let data = JSON.parse(localStorage.getItem('siswa') || '[]');
+let editIndex = -1;
+
+if(data.length === 0){
+  data = [
+    {nis:'001', nama:'Andi Setiawan', kelas:'X RPL 1', jk:'Laki-laki', tgl:'2008-01-15'},
+    {nis:'002', nama:'Budi Santoso', kelas:'X RPL 1', jk:'Laki-laki', tgl:'2008-02-22'},
+    {nis:'003', nama:'Citra Lestari', kelas:'X RPL 2', jk:'Perempuan', tgl:'2008-07-10'},
+    {nis:'004', nama:'Deki Hartono', kelas:'X RPL 2', jk:'Laki-laki', tgl:'2008-09-09'},
+    {nis:'005', nama:'Eka Wijaya', kelas:'X RPL 2', jk:'Perempuan', tgl:'2008-11-18'},
+  ];
+}
+
+function simpan(){
+  const nis = document.getElementById('nis').value.trim();
+  const nama = document.getElementById('nama').value.trim();
+  const kelas = document.getElementById('kelas').value;
+  const tgl = document.getElementById('tgl').value;
+  const jk = document.querySelector('input[name="jk"]:checked').value;
+  if(!nis || !nama || !kelas || !tgl){ alert('Lengkapi semua data!'); return; }
+
+  const obj = {nis, nama, kelas, jk, tgl};
+  if(editIndex >= 0){ data[editIndex] = obj; editIndex = -1; }
+  else { data.push(obj); }
+  
+  localStorage.setItem('siswa', JSON.stringify(data));
+  resetForm();
+  render();
+}
+
+function resetForm(){
+  document.getElementById('nis').value='';
+  document.getElementById('nama').value='';
+  document.getElementById('kelas').value='';
+  document.getElementById('tgl').value='';
+  editIndex = -1;
+}
+
+function render(){
+  const q = document.getElementById('search').value.toLowerCase();
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  let filtered = data.filter(d => d.nama.toLowerCase().includes(q) || d.nis.includes(q));
+  filtered.forEach((d,i)=>{
+    tbody.innerHTML += `<tr>
+      <td>${i+1}</td>
+      <td>${d.nis}</td>
+      <td>${d.nama}</td>
+      <td>${d.kelas}</td>
+      <td>${d.jk}</td>
+      <td>${d.tgl}</td>
+      <td>
+        <button class="btn btn-edit" onclick="editData(${i})">✎</button>
+        <button class="btn btn-delete" onclick="hapus(${i})">🗑️</button>
+      </td>
+    </tr>`;
+  });
+  document.getElementById('info').innerText = Menampilkan 1 - ${filtered.length} dari ${data.length} data;
+}
+
+function editData(i){
+  const d = data[i];
+  document.getElementById('nis').value = d.nis;
+  document.getElementById('nama').value = d.nama;
+  document.getElementById('kelas').value = d.kelas;
+  document.getElementById('tgl').value = d.tgl;
+  document.querySelectorAll('input[name="jk"]').forEach(r=>{ if(r.value==d.jk) r.checked=true });
+  editIndex = i;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function hapus(i){
+  if(confirm('Hapus data ini?')){ data.splice(i,1); localStorage.setItem('siswa', JSON.stringify(data)); render(); }
+}
+
+render();
+</script>
+</body>
+</html>

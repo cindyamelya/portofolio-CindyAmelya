@@ -1,0 +1,141 @@
+/* css exsternal */
+
+.kotakpink {
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  flex-direction: row;
+}
+.kotakbiru {
+  width: 40px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakmerah {
+  width: 200px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakhijau {
+  width: 40px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakungu {
+  width: 190px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakkuning {
+  width: 40px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakoren {
+  width: 50px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakhitam {
+  width: 40px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakcoklat {
+  width: 90px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakabu {
+  width: 150px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakviolet {
+  width: 60px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotaklilac {
+  width: 30px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakcream {
+  width: 60px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakhijautua {
+  width: 30px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}
+.kotakemas {
+  width: 60px;
+  height: 50px;
+  background-color: pink;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  justify-content: center;
+}

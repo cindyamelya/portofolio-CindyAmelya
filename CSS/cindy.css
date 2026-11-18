@@ -1,0 +1,323 @@
+/* ========================================= */
+/* RESET & VARIABEL WARNA (LIGHT PINK THEME) */
+/* ========================================= */
+:root {
+  --primary-pink: #ffb6c1;
+  --soft-pink: #ffe4e1;
+  --dark-pink: #d87093;
+  --accent-pink: #ff69b4;
+  --text-dark: #4a4a4a;
+  --bg-color: #fff0f3;
+  --card-bg: #ffffff;
+  --white: #ffffff;
+  --shadow: 0 10px 25px rgba(216, 112, 147, 0.15);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ========================================= */
+/* NAVBAR */
+/* ========================================= */
+navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(216, 112, 147, 0.1);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--dark-pink);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: var(--transition);
+  text-transform: capitalize;
+}
+
+.nav-links a:hover {
+  color: var(--accent-pink);
+}
+
+/* ========================================= */
+/* CONTAINER UTAMA & SECTION */
+/* ========================================= */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 7rem 2rem 3rem 2rem;
+}
+
+section {
+  padding: 4rem 0;
+  border-bottom: 1px dashed rgba(216, 112, 147, 0.3);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--dark-pink);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  text-transform: capitalize;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-pink);
+  margin: 0.5rem auto 0 auto;
+  border-radius: 2px;
+}
+
+/* ========================================= */
+/* HERO SECTION & FOTO MELAYANG (FLOATING) */
+/* ========================================= */
+.hero {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  color: var(--dark-pink);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Efek Foto Bulat & Melayang (Floating Animation) */
+.hero img {
+  width: 220px !important;
+  height: 220px !important;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--white);
+  box-shadow: 0 15px 35px rgba(216, 112, 147, 0.25);
+  margin: 1.5rem auto;
+  animation: floating 4s ease-in-out infinite;
+  display: block;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ========================================= */
+/* TENTANG SAYA */
+/* ========================================= */
+#tentang p {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  font-size: 1.05rem;
+  text-align: justify;
+  border: 1px solid var(--soft-pink);
+}
+
+/* ========================================= */
+/* PORTOFOLIO & KARTU */
+/* ========================================= */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid var(--soft-pink);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(216, 112, 147, 0.25);
+}
+
+.card h3 {
+  color: var(--dark-pink);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card p {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+/* ========================================= */
+/* PENDIDIKAN & LOGO */
+/* ========================================= */
+#pendidikan .card {
+  text-align: center;
+}
+
+.pendidikan-container {
+  margin-top: 1.5rem;
+}
+
+.pendidikan-container .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pendidikan-container .logo img {
+  width: 90px !important;
+  height: 90px !important;
+  object-fit: contain;
+  background-color: var(--soft-pink);
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(216, 112, 147, 0.15);
+  transition: var(--transition);
+}
+
+.pendidikan-container .logo img:hover {
+  transform: scale(1.08);
+}
+
+/* ========================================= */
+/* KONTAK */
+/* ========================================= */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--card-bg);
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--soft-pink);
+  transition: var(--transition);
+}
+
+.contact-item i {
+  color: var(--dark-pink);
+  font-size: 1.2rem;
+}
+
+.contact-item:hover {
+  background-color: var(--soft-pink);
+  color: var(--dark-pink);
+  transform: translateX(5px);
+}
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--dark-pink);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN (HP / MOBILE) */
+/* ========================================= */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0.8rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding-top: 8rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero img {
+    width: 180px !important;
+    height: 180px !important;
+  }
+}

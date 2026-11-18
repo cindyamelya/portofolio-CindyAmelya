@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Colspan Rowspan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            background-color: #00cc66;
+            width: 800px;
+            height: 500px;
+        }
+
+        td {
+            border: 2px solid #008844;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .kecil {
+            height: 45px;
+        }
+
+        .besar {
+            background-color: #00cc66;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>TABLE USING COLSPAN, ROWSPAN</h2>
+
+    <table>
+        <!-- Baris 1 -->
+        <tr>
+            <td rowspan="8">A</td>
+            <td rowspan="7">B</td>
+            <td rowspan="6">C</td>
+            <td rowspan="5">D</td>
+            <td rowspan="4">E</td>
+            <td rowspan="3">F</td>
+            <td colspan="2">A1</td>
+            <td rowspan="3">H</td>
+            <td rowspan="4">I</td>
+            <td rowspan="5">J</td>
+            <td rowspan="6">K</td>
+            <td rowspan="7">L</td>
+            <td rowspan="8">M</td>
+        </tr>
+        <!-- Baris 2 -->
+        <tr>
+            <td colspan="2">I</td>
+        </tr>
+        <!-- Baris 3 -->
+        <tr>
+            <td colspan="2">GH</td>
+        </tr>
+        <!-- Baris 4 -->
+        <tr>
+            <td colspan="2">N</td>
+        </tr>
+        <!-- Baris 5 -->
+        <tr>
+            <td colspan="4">O</td>
+        </tr>
+        <!-- Baris 6 -->
+        <tr>
+            <td colspan="6">P</td>
+        </tr>
+        <!-- Baris 7 -->
+        <tr>
+            <td colspan="8">Q</td>
+        </tr>
+        <!-- Baris 8 -->
+        <tr>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+            <td>U</td>
+            <td colspan="2">V</td>
+            <td>W</td>
+            <td>X</td>
+        </tr>
+        <!-- Baris 9 -->
+        <tr>
+            <td colspan="12">Y</td>
+        </tr>
+        <!-- Baris 10 -->
+        <tr class="kecil">
+            <td>Z</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>
+    </table>
+
+</body>
+</html>

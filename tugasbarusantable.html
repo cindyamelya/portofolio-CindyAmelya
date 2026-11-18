@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tambah Data Siswa</title>
+</head>
+<body>
+  <div class="container">
+    <h1>TAMBAH DATA SISWA</h1>
+    
+    <form action="" method="POST">
+      <table>
+        
+        <tr>
+          <td><label for="nis">NIS :</label></td>
+        </tr>
+        <tr>
+          <td class="name-inputs">
+            <input type="text" id="nis" name="nis" placeholder="Masukan NIS" required />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="nama">Nama Lengkap :</label></td>
+        </tr>
+        <tr>
+          <td class="name-inputs">
+            <input type="text" id="nama" name="nama" placeholder="Masukan nama lengkap" required />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="kelas">Kelas :</label><br />
+            <select id="kelas" name="kelas" required>
+              <option value="">Pilih kelas</option>
+              <option value="XI RPL 1">XI RPL 1</option>
+              <option value="XI RPL 2">XI RPL 2</option>
+              <option value="XI RPL 3">XI RPL 3</option>
+              <option value="XI RPL 4">XI RPL 4</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Jenis Kelamin :</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="gender" value="Laki-laki" required /> Laki-laki
+              </label>
+              <label>
+                <input type="radio" name="gender" value="Perempuan" required /> Perempuan
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="tanggal-lahir">Tanggal Lahir :</label><br />
+            <input type="date" id="tanggal-lahir" name="tanggal_lahir" required />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <button type="submit">&#43; Simpan</button>
+            <button type="reset">&#8635; Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>
